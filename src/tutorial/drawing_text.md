@@ -123,7 +123,7 @@ Note that this example code does not cover kerning, or advancing the cursor to t
 
 I leave it as an exercise for the reader to sanitize this code to prevent the program from panicing due to an invalid index into the slice.  I also recommend removing the `println!()` call within the function, as it is incredibly common for a glyph (such as a space) to not appear in a font; in these cases this example code simply ignores the non existent character as if it did not exist.
 
-As a final exercise we'll add a function that will be called each tick to test how performant this code is.
+As a final exercise we'll add a function that will be called each tick to test how performant this code is.  This function will print various information from the controllers and other input contexts onto this huge 4 square metre display for you to interact with.
 
 ```rust,noplayground
 fn update_dynscreen(engine: &mut Engine, state: &mut State) {
@@ -180,3 +180,18 @@ fn update_dynscreen(engine: &mut Engine, state: &mut State) {
     engine.vulkan_context.upload_image(text_slice, 1, vec![0], &(dyn_texture.image));
 }
 ```
+
+This example function can fit into your tick function.  If you run the example code, you will be able to see clicks on the
+a, b, x and y buttons, the grips and triggers, and the rotation and translation of your headset and controllers as you move
+about the scene.  You could add an example model into your scene which you update with a local translation based off of the
+data returned from the input context.  In this way, you can compare the numbers shown in the textual output with the visual
+appearance on screen, and understand the input you are getting back from your controllers in a very concrete way which will
+remove any ambiguities provided by the wording of the specification.
+
+The code presented above, despite the large number of floating point operations undertaken to draw the content to the buffer,
+is remarkably fast.  It is so fast that the numbers received from the input context, changing each frame as they do, will blur
+into one another on screen because the frame rate is higher than your eyes can perceive. At least, such is the outcome perceived
+by running this code on an Oculus Quest 2 with its ARM64 architecture.
+
+You could further speed up the above code by caching the x, y and coverage data returned by ab_glyph to avoid unnecessary
+per glyph calculations being repeated for each instance of the specific glyph.

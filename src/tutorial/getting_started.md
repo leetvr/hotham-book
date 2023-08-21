@@ -222,11 +222,19 @@ fn tick(tick_data: TickData, engine: &mut Engine, _state: &mut State) {
 
 In this example tick function, the rendering system is the last to be called, after the physics system, grabbing system, animation system and other systems have updated object positions and relevant textures, and global transforms have been updated by the transform systems listed. The rendering system is passed the image index in the swapchain that was calculated by `engine.update()` to ensure the correct frame buffer gets updated.
 
-The following lines have been added for the sake of the dynamic texturing program which will be described in the final tutorials.  They are not hotham systems.
+The following lines have been added for the sake of the dynamic texturing example which will be described in a later tutorial.  They are not hotham systems.
 
 ```rust,noplayground
 		input::handle_input(&engine.input_context, &mover, _state);
 		update_dynscreen(engine, _state);
 ```
+
+# Debug System
+
+If you wonder why your colors get all messed up when you press the buttons on the controllers, you probably have the debug system enabled, as per the second to last system showing in the example above.  This is a system designed to, as its comments indicate, help in debugging the fragment shader.  It makes some changes to the params variable which is a Vec4 passed to the shader.
+
+Depending on the value of the third value in params, it will change the output color to display the base color, the normal, the occulusion, emission, roughness or metallic texture sampled.
+
+If you don't need to debug your output textures, comment this line out or remove it to *turn this off*.  I will discuss the different systems that can be enabled shortly.
 
 In the next section, we will look at things that typically happen in the initialisation of the program, including the loading of game models.
