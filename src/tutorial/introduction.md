@@ -12,7 +12,7 @@ As an example, an app wanting to display a pdf or view a wall of images sourced 
 
 The goal is therefore to demystify the processs by providing a clear explanation of how the multiple primitive components of Hotham work together.
 
-I am working primarily with the Oculus Quest 2, but this tutorial aims to be as generic as possible and the concepts discuss within are applicable to any application utilising the 3D rendering and physics functionality which Hotham provides.
+I am working primarily with the Oculus Quest 2, but this tutorial aims to be as generic as possible and the concepts discussed within are applicable to any application utilising the 3D rendering and physics functionality which Hotham provides.
 
 This version of the tutorial covers Hotham 0.2.0; if you are following
 this further down the track, aspects of the process such as compilation
