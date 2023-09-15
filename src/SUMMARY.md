@@ -26,4 +26,7 @@
   - [The Render Context](./tutorial/render_context.md)
   - [Custom Rendering Part 1](./tutorial/custom_rendering_1.md)
   - [Custom Rendering Part 2](./tutorial/custom_rendering_2.md)
+  - [Custom Rendering Part 3](./tutorial/custom_rendering_3.md)
+  - [Custom Rendering Part 4](./tutorial/custom_rendering_4.md)
+  - [Resources & Conclusion](./tutorial/conclusion.md)
   

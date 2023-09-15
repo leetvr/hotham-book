@@ -1,6 +1,6 @@
 # Getting Started
 
-The typical format of a Hotham program is going to include a main.rs,
+The typical format of a Hotham program is going to include a `main.rs`,
 a `lib.rs`, and additional modules for your separately written systems.  The
 `main.rs` looks something like this:
 

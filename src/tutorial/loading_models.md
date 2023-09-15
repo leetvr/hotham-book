@@ -55,6 +55,8 @@ assets = "D:\\hotham-main\\hotham-main\\examples\\simple-with-nav\\assets"
 
 You could further simplify the above for loop to use `iter().map()` on the `Vec<&str>` to create a non-mutable `Vec<Vec<u8>>`, or use `as_slice()` to transform the returned `Vec<u8>`'s into slices before a single collect call.  I'll leave it up to you to experiment with what approach works best for you.
 
+The native activity also exposes the `external_data_path` and `internal_data_path` properties, paths to the folders on the Android file system where public and private application data can be stored respectively.  These are Rust `Path` objects whose documentation is outlined [here](https://doc.rust-lang.org/nightly/std/path/struct.Path.html).
+
 # Adding Models to the World
 
 Once you have your models as above, you'll want to extract specific objects from the `Models`:
